@@ -167,6 +167,58 @@ const Index = () => {
             </p>
           </div>
 
+          <div className="mb-20 bg-card rounded-lg overflow-hidden animate-fade-in">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="aspect-[4/5] md:aspect-auto">
+                <img
+                  src="https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/b9020186-c3ec-4899-80b7-e24960327c6b.jpg"
+                  alt="О фотографе"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <div className="mb-4 inline-flex items-center gap-2">
+                  <Icon name="User" size={20} className="text-primary" />
+                  <span className="text-sm font-medium text-primary uppercase tracking-wider">
+                    О фотографе
+                  </span>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                  Привет! Я создаю вечные воспоминания
+                </h3>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Более 7 лет я занимаюсь фотографией, превращая мгновения в искусство.
+                    Моя специализация — портретная, семейная и свадебная съёмка.
+                  </p>
+                  <p>
+                    Каждая фотосессия для меня — это уникальная история. Я помогаю
+                    раскрыться перед камерой, создаю комфортную атмосферу и ловлю самые
+                    искренние эмоции.
+                  </p>
+                  <p>
+                    Работаю с профессиональным оборудованием Canon и студийным светом.
+                    Провела более 500 фотосессий и каждый раз влюбляюсь в свою работу заново.
+                  </p>
+                </div>
+                <div className="mt-8 grid grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-1">7+</div>
+                    <div className="text-sm text-muted-foreground">лет опыта</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                    <div className="text-sm text-muted-foreground">фотосессий</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-1">100%</div>
+                    <div className="text-sm text-muted-foreground">любви к делу</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPhotos.map((photo, index) => (
               <Dialog key={photo.id}>
