@@ -48,14 +48,60 @@ const Index = () => {
     }
   ];
 
-  const allPhotos = [...portraits, ...family];
+  const children = [
+    {
+      id: 7,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/3c1e9758-1d81-4bf0-bcc7-52f320f28d98.jpg",
+      category: "children",
+      title: "Детская радость"
+    },
+    {
+      id: 8,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/3c1e9758-1d81-4bf0-bcc7-52f320f28d98.jpg",
+      category: "children",
+      title: "Игривые моменты"
+    },
+    {
+      id: 9,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/3c1e9758-1d81-4bf0-bcc7-52f320f28d98.jpg",
+      category: "children",
+      title: "Искренние улыбки"
+    }
+  ];
+
+  const lovestory = [
+    {
+      id: 10,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/e40e2c1f-1ab5-4e45-af69-d6dae2a662c7.jpg",
+      category: "lovestory",
+      title: "История любви"
+    },
+    {
+      id: 11,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/e40e2c1f-1ab5-4e45-af69-d6dae2a662c7.jpg",
+      category: "lovestory",
+      title: "Нежность"
+    },
+    {
+      id: 12,
+      src: "https://cdn.poehali.dev/projects/1559115a-f59a-48a9-b38f-1b37285cc5df/files/e40e2c1f-1ab5-4e45-af69-d6dae2a662c7.jpg",
+      category: "lovestory",
+      title: "Романтика"
+    }
+  ];
+
+  const allPhotos = [...portraits, ...family, ...children, ...lovestory];
 
   const filteredPhotos =
     activeSection === "all"
       ? allPhotos
       : activeSection === "portrait"
       ? portraits
-      : family;
+      : activeSection === "family"
+      ? family
+      : activeSection === "children"
+      ? children
+      : lovestory;
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,7 +109,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold tracking-tight">ФОТОГРАФ</h1>
-            <div className="flex gap-8">
+            <div className="flex gap-6 flex-wrap">
               <button
                 onClick={() => setActiveSection("all")}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -87,6 +133,22 @@ const Index = () => {
                 }`}
               >
                 Семейные
+              </button>
+              <button
+                onClick={() => setActiveSection("children")}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === "children" ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                Детские
+              </button>
+              <button
+                onClick={() => setActiveSection("lovestory")}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === "lovestory" ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                Лавстори
               </button>
             </div>
           </div>
@@ -125,7 +187,13 @@ const Index = () => {
                           <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Icon name="Camera" size={16} />
                             <span>
-                              {photo.category === "portrait" ? "Портрет" : "Семейная"}
+                              {photo.category === "portrait"
+                                ? "Портрет"
+                                : photo.category === "family"
+                                ? "Семейная"
+                                : photo.category === "children"
+                                ? "Детская"
+                                : "Лавстори"}
                             </span>
                           </div>
                         </div>
